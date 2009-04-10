@@ -1,3 +1,6 @@
+/* Reset Styles, haters */
+* {margin: 0; padding: 0;}
+
 /* Elements */
 
 body
@@ -103,8 +106,14 @@ h1
 
 h1 a
 {
+  display: block;
+  text-indent: -9999px;
+  background: url(/images/h1_background.gif) no-repeat;
+  width: 400px;
+  height: 110px;
   color: #000;
   text-decoration: none;
+  margin-left: 10px;
 }
 
 h2
@@ -127,8 +136,18 @@ ul#navigation li
   display: inline;
   font-weight: bold;
   margin-right: 0.5em;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
+ul#navigation li a {
+  display: block;
+  font-size: 20px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 ul#navigation li.right
 {
   float: right;

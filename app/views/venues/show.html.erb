@@ -1,10 +1,10 @@
-<h2>Schedule for <%= @venue.name %></h2>
+<h2 id="schedule">Schedule for <%= @venue.name %></h2>
 
 <% content_tag :p do %>
   <%= link_to 'Edit Talks', venue_talks_path(@venue) %>
 <% end if admin? %>
 
-<table>
+<table id="talks">
   <tr>
     <th>Time</th>
     <th>Speaker</th>
