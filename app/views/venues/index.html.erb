@@ -1,0 +1,27 @@
+<h2>Venues</h2>
+
+<% content_tag :p do %>
+  <%= link_to 'New Venue', new_venue_path %>
+<% end if admin? %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <% if admin? %>
+      <th></th>
+      <th></th>
+    <% end %>
+  </tr>
+
+  <% @venues.each do |venue| %>
+    <tr>
+      <td><%= link_to venue.name, venue %></td>
+      <% if admin? %>
+        <td><%= link_to 'Talks', venue_talks_path(venue) %></td>
+        <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
+        <td><%= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,21 @@
+<h2>Schedule for <%= @venue.name %></h2>
+
+<% content_tag :p do %>
+  <%= link_to 'Edit Talks', venue_talks_path(@venue) %>
+<% end if admin? %>
+
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Speaker</th>
+    <th>Topic</th>
+  </tr>
+
+  <% @venue.talks.each do |talk| %>
+    <tr>
+      <td><%=h talk.starts_at.to_s(:time) %></td>
+      <td><%=h talk.speaker %></td>
+      <td><%=h talk.topic %></td>
+    </tr>
+  <% end %>
+</table>
