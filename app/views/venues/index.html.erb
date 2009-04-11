@@ -1,17 +1,12 @@
+<% if admin? %>
 <h2>Venues</h2>
-
-<% content_tag :p do %>
-  <%= link_to 'New Venue', new_venue_path %>
-<% end if admin? %>
 
 <table>
   <tr>
     <th>Name</th>
     <th></th>
-    <% if admin? %>
       <th></th>
       <th></th>
-    <% end %>
   </tr>
 
   <% @venues.each do |venue| %>
@@ -24,4 +19,12 @@
       <% end %>
     </tr>
   <% end %>
+    <tr>
+      <td>
+       <%= link_to 'Add Venue', new_venue_path %>
+     </td>
+     <td></td>
+     <td></td>
+    </tr>
 </table>
+<% end %>
