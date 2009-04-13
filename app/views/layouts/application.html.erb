@@ -1,20 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="viewport" content="width=420; initial-scale=0.6666; maximum-scale=1.0; minimum-scale=0.6666" />
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=400; initial-scale=0.755; maximum-scale=1.0; minimum-scale=0.6666" />
     <title>BarCampOrlando Schedule</title>
-    <%= javascript_include_tag 'prototype' %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'prototype', 'application' %>
     <%= stylesheet_link_tag 'application' %>
   </head>
 
-  <body>    
-  <div class="wrap">
-    <h1 id="logo"><%= link_to 'BarCampOrlando', root_path %></h1>
+  <body>
+    <div id="page">
+      <h1 id="logo"><%= link_to 'BarCampOrlando', root_path %></h1>
 
-   <div class="nonsemanticprettystuff"> 
-        <ul id="navigation">
+      <div id="navigation">
+        <ul>
           <% Venue.find(:all, :order => 'id').each do |venue| %>
             <li><%= link_to_unless_current venue.name, venue_path(venue) %></li>
           <% end %>
@@ -22,15 +21,22 @@
           <% if session[:admin] %>
             <li class="right"><%= link_to 'Log Out', logout_path %></li>
           <% end %>
+
           <br class="clear" />
         </ul>
-    </div>
-    <p style="color: green;"><%= flash[:notice] %></p>
+      </div>
 
-    <%= yield  %>
-    <div id="footer">
-    <p>Bonus: <a href="http://barcamporlando.org">BarCamp Orlando&apos; site</a>, <a href="http://search.twitter.com/search?q=&ands=&phrase=&ors=barcamporlando+%22BarCamp+Orlando%22+%23bcorlando+%23bco2009&nots=&tag=&lang=all&from=&to=&ref=&near=&within=15&units=mi&since=&until=&rpp=15">Search BarCamp Orlando on Twitter</a>, <a href="http://github.com/tylerhunt/barcamplive/tree/master">Use the source Luke!</a></p>
-    </div><!-- close #footer -->
-  </div><!-- close .wrap -->
+      <p style="color: green;"><%= flash[:notice] %></p>
+
+      <%= yield  %>
+
+      <div id="footer">
+        <ul>
+          <li><%= link_to 'BacCamp Orlando', 'http://barcamporlando.org' %></li>
+          <li><%= link_to 'Twitter Search', 'http://search.twitter.com/search?q=BarCampOrlando+OR+%22BarCamp+Orlando%22+OR+%23bcorlando+OR+%23bco2009' %></li>
+          <li><%= link_to 'Source Code', 'http://github.com/tylerhunt/barcamplive/tree/master' %></li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
