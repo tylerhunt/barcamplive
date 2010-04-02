@@ -1,25 +1,26 @@
-<h2>Talks for <%= link_to @venue.name, edit_venue_path(@venue) %></h2>
-
-<p>
-  <%= link_to 'New Talk', new_venue_talk_path(@venue) %>
-</p>
+<h2>Schedule for <%= @venue.name %></h2>
 
 <table id="talks">
   <tr>
     <th>Time</th>
-    <th>Speaker</th>
-    <th>Topic</th>
-    <th></th>
-    <th></th>
+    <th>Topic and Speaker</th>
   </tr>
 
-  <% for talk in @talks %>
+  <% @talks.each do |talk| %>
     <tr>
-      <td><%=h talk.starts_at.to_s(:time) %></td>
-      <td><%=h talk.speaker %></td>
-      <td><%=h talk.topic %></td>
-      <td><%= link_to 'Edit', edit_venue_talk_path(@venue, talk) %></td>
-      <td><%= link_to 'Destroy', [@venue, talk], :confirm => 'Are you sure?', :method => :delete %></td>
+      <td>
+        <%= talk.starts_at.to_s(:time) %>
+        &ndash;
+        <%= talk.ends_at.to_s(:time) %>
+      </td>
+      <td>
+        <strong><%= h(talk.topic) %></strong>
+
+        <% if talk.speaker? %>
+          <br />
+          <%= h(talk.speaker) %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

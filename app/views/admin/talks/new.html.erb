@@ -1,0 +1,11 @@
+<h2>New Talk for <%= @venue.name %></h2>
+
+<% form_for([:admin, @venue, @talk]) do |form| %>
+  <%= render :partial => form %>
+
+  <p>
+    <%= form.submit 'Create' %>
+    or
+    <%= link_to 'Cancel', admin_venue_talks_path(@venue) %>
+  </p>
+<% end %>

@@ -1,0 +1,12 @@
+#header h1 {
+  font-size: 2em;
+  margin: 0.5em;
+}
+
+#navigation ul li {
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  font-size: 1em;
+  margin: 0.25em 1em;
+  width: inherit;
+}

@@ -1,0 +1,28 @@
+<h2>Venues</h2>
+
+<p>
+  <%= link_to 'Add Venue', new_admin_venue_path %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sponsor</th>
+    <th>Associations</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @venues.each do |venue| %>
+    <tr>
+      <td><%= venue.name %></td>
+      <td><%= venue.sponsor %></td>
+      <td>
+        <%= link_to 'Talks', admin_venue_talks_path(venue) %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_admin_venue_path(venue) %>
+        <%= link_to 'Remove', admin_venue_path(venue), :method => :delete, :confirm => 'Are you sure?' %>
+      </td>
+    </tr>
+  <% end %>
+</table>

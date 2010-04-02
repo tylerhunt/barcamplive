@@ -1,0 +1,30 @@
+<h2>Talks for <%= @venue.name %></h2>
+
+<p>
+  <%= link_to 'New Talk', new_admin_venue_talk_path(@venue) %>
+</p>
+
+<table id="talks">
+  <tr>
+    <th>Time</th>
+    <th>Topic</th>
+    <th>Speaker</th>
+    <th>Actions</th>
+  </tr>
+
+  <% for talk in @talks %>
+    <tr>
+      <td>
+        <%= talk.starts_at.to_s(:time) %>
+        &ndash;
+        <%= talk.ends_at.to_s(:time) %>
+      </td>
+      <td><%=h talk.topic %></td>
+      <td><%=h talk.speaker %></td>
+      <td>
+        <%= link_to 'Edit', edit_admin_venue_talk_path(@venue, talk) %>
+        <%= link_to 'Remove', [:admin, @venue, talk], :method => :delete, :confirm => 'Are you sure?' %>
+      </td>
+    </tr>
+  <% end %>
+</table>

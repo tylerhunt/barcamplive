@@ -1,30 +1,30 @@
-<% if admin? %>
-<h2>Venues</h2>
+<h2>Upcoming</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-      <th></th>
-      <th></th>
-  </tr>
+<% unless @talks_by_venue.empty? %>
+  <% @talks_by_venue.each do |venue, talks| %>
+    <h3><%= link_to h(venue.name), venue_talks_path(venue) %></h3>
 
-  <% @venues.each do |venue| %>
-    <tr>
-      <td><%= link_to venue.name, venue %></td>
-      <% if admin? %>
-        <td><%= link_to 'Talks', venue_talks_path(venue) %></td>
-        <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
-        <td><%= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete %></td>
+    <table id="talks">
+      <tr>
+        <th>Time</th>
+        <th>Talk</th>
+      </tr>
+
+      <% talks.each do |talk| %>
+        <tr>
+          <td>
+            <%= talk.starts_at.to_s(:time) %>
+            &ndash;
+            <%= talk.ends_at.to_s(:time) %>
+          </td>
+          <td>
+            <%= h(talk.topic) %>
+            <%= h(talk.speaker) %>
+          </td>
+        </tr>
       <% end %>
-    </tr>
+    </table>
   <% end %>
-    <tr>
-      <td>
-       <%= link_to 'Add Venue', new_venue_path %>
-     </td>
-     <td></td>
-     <td></td>
-    </tr>
-</table>
+<% else %>
+  <p>Sorry, there's nothing going on right now.</p>
 <% end %>

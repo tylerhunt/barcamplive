@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2) do
+ActiveRecord::Schema.define(:version => 20100402151658) do
 
   create_table "talks", :force => true do |t|
     t.integer  "venue_id"
@@ -23,8 +23,11 @@ ActiveRecord::Schema.define(:version => 2) do
 
   create_table "venues", :force => true do |t|
     t.string   "name"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sponsor"
   end
 
 end

@@ -1,0 +1,11 @@
+<h2>New Venue</h2>
+
+<% form_for([:admin, @venue]) do |form| %>
+  <%= render :partial => form %>
+
+  <p>
+    <%= form.submit 'Create' %>
+    or
+    <%= link_to 'Cancel', admin_venues_path %>
+  </p>
+<% end %>

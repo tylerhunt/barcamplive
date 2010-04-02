@@ -2,8 +2,8 @@ class CreateTalks < ActiveRecord::Migration
   def self.up
     create_table :talks do |t|
       t.integer :venue_id
-      t.string :speaker
       t.string :topic
+      t.string :speaker
       t.datetime :starts_at
       t.datetime :ends_at
 
