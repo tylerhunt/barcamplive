@@ -8,9 +8,7 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
 
-  map.admin '/admin', :controller => 'application', :action => 'login'
-  map.login '/login', :controller => 'application', :action => 'login'
-  map.logout '/logout', :controller => 'application', :action => 'logout'
+  map.admin '/admin', :controller => 'admin/venues', :action => 'index'
 
   map.root :controller => 'venues'
 end
