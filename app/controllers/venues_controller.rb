@@ -2,7 +2,7 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.xml
   def index
-    time = Time.zone.local(2010, 4, 3, 13, 15)
+    time = Time.zone.now
 
     @talks_by_venue = Talk.all(
       :conditions => { :ends_at => time..(time + 2.hours) }
