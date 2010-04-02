@@ -3,20 +3,8 @@
 <table id="talks">
   <tr>
     <th>Time</th>
-    <th>Topic and Speaker</th>
+    <th>Topic &amp; Speaker</th>
   </tr>
 
-  <% @talks.each do |talk| %>
-    <tr>
-      <td><%= talk.starts_at.to_s(:time) %></td>
-      <td>
-        <strong><%= h(talk.topic) %></strong>
-
-        <% if talk.speaker? %>
-          <br />
-          <%= h(talk.speaker) %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
+  <%= render :partial => @talks %>
 </table>

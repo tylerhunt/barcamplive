@@ -7,22 +7,10 @@
     <table id="talks">
       <tr>
         <th>Time</th>
-        <th>Talk</th>
+        <th>Topic &amp; Speaker</th>
       </tr>
 
-      <% talks.each do |talk| %>
-        <tr>
-          <td>
-            <%= talk.starts_at.to_s(:time) %>
-            &ndash;
-            <%= talk.ends_at.to_s(:time) %>
-          </td>
-          <td>
-            <%= h(talk.topic) %>
-            <%= h(talk.speaker) %>
-          </td>
-        </tr>
-      <% end %>
+      <%= render :partial => talks %>
     </table>
   <% end %>
 <% else %>
