@@ -8,11 +8,7 @@
 
   <% @talks.each do |talk| %>
     <tr>
-      <td>
-        <%= talk.starts_at.to_s(:time) %>
-        &ndash;
-        <%= talk.ends_at.to_s(:time) %>
-      </td>
+      <td><%= talk.starts_at.to_s(:time) %></td>
       <td>
         <strong><%= h(talk.topic) %></strong>
 
