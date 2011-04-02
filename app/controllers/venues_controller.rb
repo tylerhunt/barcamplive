@@ -5,7 +5,8 @@ class VenuesController < ApplicationController
     time = Time.zone.now
 
     @talks_by_venue = Talk.all(
-      :conditions => { :ends_at => time..(time + 2.hours) }
+      :conditions => { :ends_at => time..(time + 2.hours) },
+      :order => 'starts_at'
     ).group_by(&:venue)
 
     respond_to do |format|
