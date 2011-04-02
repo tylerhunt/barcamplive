@@ -64,4 +64,29 @@ namespace :populate do
     topic('Lunch at The Globe', date + 13.hours)
     topic('After Party', date + 18.hours)
   end
+
+  desc "Populate the database with the venues and talks for 2011"
+  task '2011' => :environment do
+    date = Date.new(2011, 4, 2)
+
+    venues = [
+      slingapours = venue('Slingapour\'s'),
+      one_eyed_jacks = venue('One Eyed Jack\'s'),
+      gibson_showroom = venue('Gibson Showroom'),
+      the_globe = venue('The Globe'),
+    ]
+
+    venues.each do |venue|
+      talks(venue, date + 10.hours, date + 12.hours)
+      talks(venue, date + 12.hours, date + 13.hours, 55.minutes, 60.minutes)
+      talks(venue, date + 13.hours, date + 18.hours)
+      talks(venue, date + 18.hours, date + 20.hours, 2.hours, 2.hours)
+    end
+
+    talks(slingapours, date + 9.hours + 30.minutes, date + 10.hours)
+
+    topic('Registration', date + 9.hours + 30.minutes)
+    topic('Lunch at The Globe', date + 12.hours)
+    topic('After Party at Baby Grand\'s', date + 18.hours)
+  end
 end
