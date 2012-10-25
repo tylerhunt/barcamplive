@@ -89,7 +89,7 @@ table td {
 }
 
 #header h1 a {
-  background: url(/images/h1_background.gif) no-repeat;
+  background: url(/assets/h1_background.gif) no-repeat;
   display: block;
   height: 120px;
   margin-left: 0.5em;
