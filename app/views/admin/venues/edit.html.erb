@@ -1,6 +1,6 @@
 <h2>Editing Venue <%= h(@venue.name) %></h2>
 
-<% form_for([:admin, @venue]) do |form| %>
+<%= form_for([:admin, @venue]) do |form| %>
   <%= render :partial => form %>
 
   <p>

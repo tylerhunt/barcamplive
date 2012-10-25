@@ -17,5 +17,5 @@ This will give you a nice starting point. The data set is from BarCampOrlando 20
 
 Next, start the development server and check out the app in your browser:
 
-  * `./script/server`
+  * `./script/rails s`
   * `open http://localhost:3000/`

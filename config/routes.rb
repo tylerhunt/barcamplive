@@ -1,14 +1,17 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resource :session
-  map.resources :venues, :has_many => :talks
+BarCampLive::Application.routes.draw do
+  resource :session
 
-  map.namespace :admin do |admin|
-    admin.resources :venues, :except => :show do |venues|
-      venues.resources :talks, :except => :show
-    end
+  resources :venues do
+    resources :talks
   end
 
-  map.admin '/admin', :controller => 'admin/venues', :action => 'index'
+  namespace :admin do
+    resources :venues, except: :show do
+      resources :talks, except: :show
+    end
 
-  map.root :controller => 'venues'
+    root to: 'venues#index'
+  end
+
+  root to: 'venues#index'
 end
